@@ -3,6 +3,8 @@ import NavBar from './Components/NavBar/NavBar.jsx';
 import EntriesChartTracker from './Components/EntriesChartTracker/EntriesChartTracker';
 import axios from "axios";
 import SearchBar from "./Components/SearchBar/SearchBar.jsx";
+import DisplayGames from "./Components/DisplayGames/DisplayGames.jsx";
+
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
     <div>
       <SearchBar games = {games}/>
       <EntriesChartTracker games = {games}/>
+      <DisplayGames games = {games}/>
+      
      <h3>Hello World!</h3>
     </div>
   );
