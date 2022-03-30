@@ -6,7 +6,7 @@ const DisplayGames = (props) => {
         {props.games.map((games, index) => {
             return(
                 <div key = {index}>
-                    <div><p className='games.name'>{props.games.name}</p></div>
+                    <div><p className='games.name'>{games.name}</p></div>
                 </div>
             )
         }
