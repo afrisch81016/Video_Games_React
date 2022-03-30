@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Chart } from "react-google-charts";
 
 const EntriesChartTracker = (props) => {
@@ -6,8 +6,8 @@ const EntriesChartTracker = (props) => {
     const [chartData, setChartData] = useState([]);
     
     useEffect(() => {
-        let tempChartData = props.parentEntries.map(entry => {
-            return [entry.date, entry.weight];
+        let tempChartData = props.games.map(games => {
+            return [games.rank, games.name, games.platform];
         });
         setChartData(tempChartData)
     },[])
