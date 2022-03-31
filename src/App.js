@@ -8,7 +8,9 @@ import DisplayGames from "./Components/DisplayGames/DisplayGames.jsx";
 
 function App() {
 
-  const [games, setGames] = useState([])
+  const [games, setGames] = useState([]);
+  const [gameId, setGameId] = useState([]);
+  const [gameSearch, setGameSearch] = useState();
 
   async function getAllGames(){
     let response = await axios.get("https://localhost:7260/api/games");
@@ -16,8 +18,15 @@ function App() {
     console.log(response.data);
   }
 
+  async function getGameById() {
+    let response = await axios.get("https://localhost:7260/api/games/20");
+    setGameId(response.data);
+    console.log(response.data);
+  }
+
   useEffect(() => {
-    getAllGames();
+    // getAllGames();
+    getGameById();
   },[]);
 
   const handleSearch = (event) => {
@@ -40,20 +49,20 @@ function App() {
 
         );
       });
-      setGames(results);
+      setGameSearch(results);
     } else {
-      setGames(games);
+      setGameSearch(games);
     }
   };
 
 
   return (
     <div>
-      <EntriesChartTracker games = {games}/>
+      {/* <EntriesChartTracker games = {games}/> */}
+      <div></div>
       
       <input type="text" onChange={(event)=> handleSearch(event)} />
-      <DisplayGames games = {games}/>
-     <h3>Hello World!</h3>
+      <DisplayGames gameSearch  = {gameSearch} gameId = {gameId}/>
     </div>
   );
 }

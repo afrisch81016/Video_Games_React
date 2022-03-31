@@ -15,7 +15,7 @@ const EntriesChartTracker = (props) => {
     return (
         <Chart
         chartType="ScatterChart"
-        data={[["Name", "Weight"], ...chartData]}
+        data={[["Rank", "Name", "Platform"], ...chartData]}
         width="100%"
         height="400px"
         legendToggle

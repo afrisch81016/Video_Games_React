@@ -3,10 +3,12 @@
 const DisplayGames = (props) => {
   return (
     <div className='displayborder'>
-        {props.games.map((games, index) => {
+        {props.gameId.map((gameId, index) => {
             return(
-                <div key = {index}>
-                    <div><p className='games.name'>{games.name}</p></div>
+                <div key={index}>
+                    <p>{gameId.rank}</p>
+                    <p>{gameId.name}</p>
+
                 </div>
             )
         }
