@@ -13,7 +13,15 @@ const EntriesChartTracker = (props) => {
     useEffect(() => {
         bestGames();
       }, [props.games]);
- 
+
+      useEffect(() => {
+        let tempChartData = chartData.map(entry => {
+            return [entry.name, entry.year];
+        });
+        setChartData(tempChartData)
+        console.log(tempChartData);
+    },[])
+
     return (
     <Chart
               width={"100%"}
@@ -21,8 +29,7 @@ const EntriesChartTracker = (props) => {
               chartType="BarChart"
               loader={<div>Loading Chart</div>}
       data={[
-          ["Name", "Age"],
-          [],
+          ["Name","Year"],
           ["Elisa", 20],
           ["Robert", 7],
           ["John", 54],
