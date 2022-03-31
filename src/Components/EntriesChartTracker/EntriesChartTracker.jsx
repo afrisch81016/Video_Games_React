@@ -4,18 +4,19 @@ import { Chart } from "react-google-charts";
 const EntriesChartTracker = (props) => {
 
     const [chartData, setChartData] = useState([]);
-    const [filterData,setFilterData] = useState([]);
+    const [filterData, setFilterData] = useState([]);
   
 
     
     
-    const bestGames = () => {
-        const results = props.games.filter((games) => {
+    const bestGames = (games) => {
+        const bestGamesResults = props.games.filter((games) => {
             return (
                 games.year >= 2013
             )
         })
-        console.log(results)
+        setFilterData(bestGamesResults)
+        console.log(filterData)
 
     };
 
@@ -23,13 +24,17 @@ const EntriesChartTracker = (props) => {
 
 
     useEffect(() => {
-    let tempChartData = props.games.map(games => {
-            return [games.name, games.platform, games.year];
+    let tempChartData = filterData.map(filterData => {
+            return [filterData.name, filterData.platform, filterData.year];
         });
         setChartData(tempChartData)
 
-        bestGames(results)
-    },[])
+    },[filterData])
+
+    useEffect(() => {
+        bestGames();
+      }, );
+
 
     return (
         <Chart

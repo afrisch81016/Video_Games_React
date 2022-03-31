@@ -58,7 +58,7 @@ function App() {
 
   return (
     <div>
-      {/* <EntriesChartTracker games = {games}/> */}
+      <EntriesChartTracker games = {games}/>
       <EntriesChart2 games ={games}/>
       <div></div>
       
