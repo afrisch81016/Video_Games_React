@@ -5,50 +5,48 @@ const EntriesChartTracker = (props) => {
 
     const [chartData, setChartData] = useState([]);
     const [filterData, setFilterData] = useState([]);
-    const filterByYear = () => {
-        const filteredGames = props.games.filter((games) => games.year >= 2013);
-        return filteredGames();
-        console.log(filteredGames)
-    }
+    // const filterByYear = () => {
+    //     const filteredGames = props.games.filter((games) => games.year >= 2013);
+    //     return filteredGames();
+    //     console.log(filteredGames)
+    // }
   
 
     
     
-    // const bestGames = (games) => {
-    //     const bestGamesResults = props.games.filter((games) => {
-    //         return (
-    //             games.year >= 2013
-    //         )
-    //     })
-    //     setFilterData()
-    //     console.log(bestGamesResults)
-    //     console.log(filterData)
+    const bestGames = () => {
+        const filteredGames = props.games.filter(games => games.year >= 2013);
+        console.log(filteredGames)
+      
 
-    // };
-
+    };
+    useEffect(() => {
+        bestGames();
+      }, []);
  
 
 
-    useEffect(() => {
-    let tempChartData = filterData.map(filterData => {
-            return [filterData.name, filterData.platform, filterData.year];
-        });
-        setChartData(tempChartData)
-        console.log(chartData)
+    // useEffect(() => {
+    // let tempChartData = filterData.map(filterData => {
+    //         return [filterData.name, filterData.platform, filterData.year];
+    //     });
+    //     setChartData(tempChartData)
+    //     console.log(chartData)
 
-    },[])
+    // },[])
 
    
 
 
     return (
-        <Chart
-        chartType="ScatterChart"
-        data={[["Rank", "Name", "Platform"], ...chartData]}
-        width="100%"
-        height="400px"
-        legendToggle
-        />
+        <div></div>
+        // <Chart
+        // chartType="ScatterChart"
+        // data={[["Rank", "Name", "Platform"], ...chartData]}
+        // width="100%"
+        // height="400px"
+        // legendToggle
+        // />
      );
     }
 
