@@ -6,21 +6,22 @@ const EntriesChartTracker = (props) => {
     const [chartData, setChartData] = useState([]);   
     
     const bestGames = () => {
-        let filteredGames = props.games.filter(element => element.year >= 2013);
+        let filteredGames = props.games.filter(element => element.year >= 2019);
         setChartData(filteredGames)
     };
 
-    useEffect(() => {
-        bestGames();
-      }, [props.games]);
+    // useEffect(() => {
+    //     bestGames();
+    //   }, [props.games]);
 
       useEffect(() => {
+        bestGames();
         let tempChartData = chartData.map(entry => {
             return [entry.name, entry.year];
         });
         setChartData(tempChartData)
         console.log(tempChartData);
-    },[])
+    },[props.games])
 
     return (
     <Chart
@@ -30,6 +31,7 @@ const EntriesChartTracker = (props) => {
               loader={<div>Loading Chart</div>}
       data={[
           ["Name","Year"],
+          ["Andy",80],
           ["Elisa", 20],
           ["Robert", 7],
           ["John", 54],
