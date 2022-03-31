@@ -3,7 +3,7 @@ import NavBar from './Components/NavBar/NavBar.jsx';
 import EntriesChartTracker from './Components/EntriesChartTracker/EntriesChartTracker';
 import axios from "axios";
 import DisplayGames from "./Components/DisplayGames/DisplayGames.jsx";
-
+import EntriesChart2 from "./Components/EntriesChartTracker/EntriesChart2.jsx"
 
 
 function App() {
@@ -59,6 +59,7 @@ function App() {
   return (
     <div>
       {/* <EntriesChartTracker games = {games}/> */}
+      <EntriesChart2 games ={games}/>
       <div></div>
       
       <input type="text" onChange={(event)=> handleSearch(event)} />
