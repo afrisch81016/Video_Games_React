@@ -11,18 +11,18 @@ const EntriesChartTracker = (props) => {
     //     console.log(filteredGames)
     // }
   
-
+//
     
     
     const bestGames = () => {
         let filteredGames = props.games.filter(element => element.year >= 2013);
-        console.log(filteredGames)
+        setChartData(filteredGames)
       
 
     };
     useEffect(() => {
         bestGames();
-      }, []);
+      }, [props.games]);
  
 
 
@@ -40,7 +40,8 @@ const EntriesChartTracker = (props) => {
 
     return (
         <div>
-            {console.log('Props from games', props.games)}
+       
+      
         </div>
         // <Chart
         // chartType="ScatterChart"
