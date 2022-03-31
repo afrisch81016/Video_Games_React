@@ -59,7 +59,7 @@ function App() {
   return (
     <div>
       <EntriesChartTracker games = {games}/>
-      <EntriesChart2 games ={games}/>
+      {/* <EntriesChart2 games ={games}/> */}
       <div></div>
       
       <input type="text" onChange={(event)=> handleSearch(event)} />
