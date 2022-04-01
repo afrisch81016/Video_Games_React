@@ -8,9 +8,11 @@ const DisplayGames = (props) => {
         {props.videoGames.map((videoGames, index) => {
             return(
                 <div key={index}>
-                    <p>{videoGames.rank}</p>
-                    <p>{videoGames.name}</p>
-
+                    <p>Rank: {videoGames.rank}</p>
+                    <p>Name: {videoGames.name}</p>
+                    <p>Year: {videoGames.year}</p>
+                    <p>Publisher: {videoGames.publisher}</p>
+                    <p>Platform: {videoGames.platform}</p>
                 </div>
             )
         }
