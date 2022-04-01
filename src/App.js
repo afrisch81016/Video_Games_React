@@ -60,7 +60,7 @@ function App() {
     <div>
       <EntriesChartTracker games = {games}/>
       {/* <EntriesChart2 games ={games}/> */}
-      <div></div>
+      
       
       <input type="text" onChange={(event)=> handleSearch(event)} />
       <DisplayGames gameSearch  = {gameSearch} gameId = {gameId}/>

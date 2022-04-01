@@ -2,76 +2,55 @@ import React, { useState, useEffect } from 'react';
 import { Chart } from "react-google-charts";
 
 const EntriesChartTracker = ({games}) => {
-  console.log(games)
-
   
+  function generateDataforChart(){
 
-    const [chartData, setChartData] = useState([]);   
+    console.log(games);
+
+    let filteredGames = games.filter(game => game.year >= 2013);
     
-    
-        const filteredGames = games.filter(element => element.year >= 2013).map(entry => {
-          return [entry.platform];
-        })
-        setChartData(filteredGames)
-        console.log(filteredGames);
+    console.log("Filtered Games", filteredGames);
+
+    let platforms = filteredGames.map(game => {
+      return game.platform;
+    });
+    console.log("Platform", platforms);  
+
+    let distinctPlatforms = [...new Set(platforms)]
+
+    console.log('Distinct Platforms', distinctPlatforms)
+
+    let platformArrays = distinctPlatforms.map(platform => {
+      return [platform, 10, "silver"]
+    });
+
+    console.log('Platform Arrays', platformArrays);
+
     
 
-    return (
-    <Chart
-              width={"100%"}
-              // height={"200%"}
-              chartType="BarChart"
-              loader={<div>Loading Chart</div>}
-      data={[
-          ["Name","Year"],...chartData]}     //{[["Date", "Weight"], ...chartData]},
-          // ["Andy",80],
-          // ["Elisa", 20],
-          // ["Robert", 7],
-          // ["John", 54],
-          // ["Jessica", 22],
-          // ["Aaron", 3],
-          // ["Margareth", 42],
-          // ["Miranda", 33],
-      // ]}
-      rootProps={{ "data-testid": "6" }}
-      chartPackages={["corechart", "controls"]}
-      render={({ renderControl, renderChart }) => {
-          return (
-          <div style={{ display: "flex" }}>
-            <div style={{ width: "40%" }}>{renderControl(() => true)}</div>
-            <div style={{ width: "60%" }}>{renderChart()}</div>
-          </div>
-        );
-      }}
-      controls={[
-          {
-          controlType: "StringFilter",
-          options: {
-              filterColumnIndex: 0,
-              matchType: "any", // 'prefix' | 'exact',
-              ui: {
-                  label: "Search by name",
-            },
-          },
-        },
-        {
-            controlType: "NumberRangeFilter",
-            controlID: "age-filter",
-            options: {
-                filterColumnIndex: 1,
-                ui: {
-                    labelStacking: "vertical",
-              label: "Age Selection:",
-              allowTyping: false,
-              allowMultiple: false,
-            },
-          },
-        },
-      ]}
-    />
+
+    const data = [
+      ["Platform", "Sales", { role: "style" }],
+      ["PS4", 8.94, "#b87333"], 
+      ["XBOX", 10.49, "silver"], 
+      ["Nintendo", 19.3, "gold"],
+      ["PC", 21.45, "color: #e5e4e2"], 
+    ];
+
+    return data;
+  }
+
+
+
+
+
+  return (
+       <div>
+         <h1>Platform by Global Sales in Millions!</h1>
+         <Chart chartType="ColumnChart" width="100%" height="400px" data={generateDataforChart} />
+       </div>
   );
-}
-
-
+   
+};
 
 export default EntriesChartTracker;
