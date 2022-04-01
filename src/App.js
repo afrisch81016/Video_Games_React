@@ -3,7 +3,7 @@ import NavBar from './Components/NavBar/NavBar.jsx';
 import EntriesChartTracker from './Components/EntriesChartTracker/EntriesChartTracker';
 import axios from "axios";
 import DisplayGames from "./Components/DisplayGames/DisplayGames.jsx";
-import EntriesChart2 from "./Components/EntriesChartTracker/EntriesChart2.jsx"
+
 
 
 function App() {
@@ -38,13 +38,13 @@ function App() {
 
 const filteredGames = (searchTerm) => {
   console.log(searchTerm);
-  let matchingGames = games.filter((games) => {
-    if(games.rank.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    games.rank.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    games.rank.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    games.rank.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    games.rank.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    games.rank.toLowerCase().includes(searchTerm.toLowerCase())){
+  let matchingGames = games.filter((game) => {
+    if (game.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    // game.rank.toString().toLowerCase().includes(searchTerm.toLowerCase()) ||
+    // game.year.toString().toLowerCase().includes(searchTerm.toLowerCase()) ||
+    game.platform.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    game.genre.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    game.publisher.toLowerCase().includes(searchTerm.toLowerCase())){
       return true
 
     }
@@ -58,8 +58,7 @@ const filteredGames = (searchTerm) => {
 
   return (
     <div>
-      {/* <EntriesChartTracker games = {games}/> */}
-      {/* <EntriesChart2 games ={games}/> */}
+      <EntriesChartTracker games = {games}/>
       <form onSubmit={handleSubmit}>
       <input value = {searchTerm} type="text" onChange={(e)=> setSearchTerm(e.target.value)} />
       <button type="submit">Search Games</button>
