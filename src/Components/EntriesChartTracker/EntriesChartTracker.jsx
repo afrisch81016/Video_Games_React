@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Chart } from "react-google-charts";
 
-const EntriesChartTracker = ({games}) => {
+const EntriesChartTracker = (props) => {
   
   function generateDataforChart(){
 
-    console.log(games);
 
-    let filteredGames = games.filter(game => game.year >= 2013);
+    console.log(props.games);
+
+    let filteredGames = props.games.filter(game => game.year >= 2013);
     
     console.log("Filtered Games", filteredGames)
 
@@ -21,14 +22,11 @@ const EntriesChartTracker = ({games}) => {
     console.log('Distinct Platforms', distinctPlatforms)
 
     let platformArrays = distinctPlatforms.map(platform => {
-      let allGamesForPlatform = filteredGames.filter(game => game.platform == platform);
+      let allGamesForPlatform = filteredGames.filter(game => game.platform === platform);
       return [platform, 10, "silver"]
     });
 
     console.log('Platform Arrays', platformArrays);
-
-  
-
 
     const data = [
       ["Platform", "Sales", { role: "style" }],
@@ -38,15 +36,10 @@ const EntriesChartTracker = ({games}) => {
 
     return data;
   }
-
-
-
-
-
   return (
        <div>
          <h1>Platform by Global Sales in Millions!</h1>
-         <Chart chartType="ColumnChart" width="100%" height="400px" data={generateDataforChart} />
+         <Chart chartType="ColumnChart" width="100%" height="400px" data={generateDataforChart()} />
        </div>
   );
    
