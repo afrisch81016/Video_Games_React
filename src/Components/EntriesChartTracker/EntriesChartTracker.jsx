@@ -9,7 +9,7 @@ const EntriesChartTracker = ({games}) => {
 
     let filteredGames = games.filter(game => game.year >= 2013);
     
-    console.log("Filtered Games", filteredGames);
+    console.log("Filtered Games", filteredGames)
 
     let platforms = filteredGames.map(game => {
       return game.platform;
@@ -21,21 +21,20 @@ const EntriesChartTracker = ({games}) => {
     console.log('Distinct Platforms', distinctPlatforms)
 
     let platformArrays = distinctPlatforms.map(platform => {
+      let allGamesForPlatform = filteredGames.filter(game => game.platform == platform);
       return [platform, 10, "silver"]
     });
 
     console.log('Platform Arrays', platformArrays);
 
-    
+  
 
 
     const data = [
       ["Platform", "Sales", { role: "style" }],
-      ["PS4", 8.94, "#b87333"], 
-      ["XBOX", 10.49, "silver"], 
-      ["Nintendo", 19.3, "gold"],
-      ["PC", 21.45, "color: #e5e4e2"], 
+      ...platformArrays
     ];
+    console.log('Data', data)
 
     return data;
   }
