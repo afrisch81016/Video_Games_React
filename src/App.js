@@ -10,7 +10,14 @@ function App() {
 
   const [games, setGames] = useState([]);
   const [gameId, setGameId] = useState([]);
-  const [gameSearch, setGameSearch] = useState();
+  const [videoGames, setVideoGames] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  function handleSubmit(e){
+
+    e.preventDefault()
+    filteredGames(searchTerm)
+}
 
   async function getAllGames(){
     let response = await axios.get("https://localhost:7260/api/games");
@@ -29,41 +36,36 @@ function App() {
     getGameById();
   },[]);
 
-  const handleSearch = (event) => {
-    const keyword = event.target.value;
+const filteredGames = (searchTerm) => {
+  console.log(searchTerm);
+  let matchingGames = games.filter((games) => {
+    if(games.rank.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    games.rank.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    games.rank.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    games.rank.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    games.rank.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    games.rank.toLowerCase().includes(searchTerm.toLowerCase())){
+      return true
 
-    if (keyword !== "") {
-      const results = games.filter((games) => {
-        return (
-          games.rank.toLowerCase().includes(keyword.toLowerCase()) ||
-          games.name.toLowerCase().includes(keyword.toLowerCase()) ||
-          games.platform.toLowerCase().includes(keyword.toLowerCase()) ||
-          games.year.toLowerCase().includes(keyword.toLowerCase()) ||
-          games.genre.toLowerCase().includes(keyword.toLowerCase()) ||
-          games.publisher.toLowerCase().includes(keyword.toLowerCase()) ||
-          games.northAmericanSales.toLowerCase().includes(keyword.toLowerCase()) ||
-          games.europeanSales.toLowerCase().includes(keyword.toLowerCase()) ||
-          games.japanSales.toLowerCase().includes(keyword.toLowerCase()) ||
-          games.otherSales.toLowerCase().includes(keyword.toLowerCase()) ||
-          games.globalSales.toLowerCase().includes(keyword.toLowerCase()) 
-
-        );
-      });
-      setGameSearch(results);
-    } else {
-      setGameSearch(games);
     }
-  };
+    else return false
+  })
+  setVideoGames(matchingGames);
+  console.log(matchingGames);
+
+}
 
 
   return (
     <div>
-      <EntriesChartTracker games = {games}/>
+      {/* <EntriesChartTracker games = {games}/> */}
       {/* <EntriesChart2 games ={games}/> */}
-      
-      
-      <input type="text" onChange={(event)=> handleSearch(event)} />
-      <DisplayGames gameSearch  = {gameSearch} gameId = {gameId}/>
+      <form onSubmit={handleSubmit}>
+      <input value = {searchTerm} type="text" onChange={(e)=> setSearchTerm(e.target.value)} />
+      <button type="submit">Search Games</button>
+      </form>
+        
+      <DisplayGames videoGames  = {videoGames}/>
     </div>
   );
 }
