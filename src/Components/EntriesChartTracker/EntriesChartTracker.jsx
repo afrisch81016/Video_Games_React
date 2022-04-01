@@ -6,8 +6,11 @@ const EntriesChartTracker = (props) => {
     const [chartData, setChartData] = useState([]);   
     
     const bestGames = () => {
-        let filteredGames = props.games.filter(element => element.year >= 2019);
+        let filteredGames = props.games.filter(element => element.year >= 2013).map(entry => {
+          return [entry.name, entry.year];
+        })
         setChartData(filteredGames)
+        console.log(filteredGames);
     };
 
     // useEffect(() => {
@@ -16,30 +19,30 @@ const EntriesChartTracker = (props) => {
 
       useEffect(() => {
         bestGames();
-        let tempChartData = chartData.map(entry => {
-            return [entry.name, entry.year];
-        });
-        setChartData(tempChartData)
-        console.log(tempChartData);
+        // let tempChartData = chartData.map(entry => {
+        //     return [entry.name, entry.year];
+        // });
+        // setChartData(tempChartData)
+        // console.log(tempChartData);
     },[props.games])
 
     return (
     <Chart
               width={"100%"}
-              height={"100%"}
+              // height={"200%"}
               chartType="BarChart"
               loader={<div>Loading Chart</div>}
       data={[
-          ["Name","Year"],
-          ["Andy",80],
-          ["Elisa", 20],
-          ["Robert", 7],
-          ["John", 54],
-          ["Jessica", 22],
-          ["Aaron", 3],
-          ["Margareth", 42],
-          ["Miranda", 33],
-      ]}
+          ["Name","Year"],...chartData]}     //{[["Date", "Weight"], ...chartData]},
+          // ["Andy",80],
+          // ["Elisa", 20],
+          // ["Robert", 7],
+          // ["John", 54],
+          // ["Jessica", 22],
+          // ["Aaron", 3],
+          // ["Margareth", 42],
+          // ["Miranda", 33],
+      // ]}
       rootProps={{ "data-testid": "6" }}
       chartPackages={["corechart", "controls"]}
       render={({ renderControl, renderChart }) => {
