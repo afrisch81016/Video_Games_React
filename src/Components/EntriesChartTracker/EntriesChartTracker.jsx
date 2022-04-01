@@ -23,7 +23,12 @@ const EntriesChartTracker = (props) => {
 
     let platformArrays = distinctPlatforms.map(platform => {
       let allGamesForPlatform = filteredGames.filter(game => game.platform === platform);
-      return [platform, 10, "silver"]
+      let globalSales = allGamesForPlatform.reduce(function(sum, current){
+        return sum + current.globalSales;
+      },0)
+      console.log(globalSales)
+
+      return [platform, globalSales, "silver"]
     });
 
     console.log('Platform Arrays', platformArrays);
