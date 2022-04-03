@@ -31,8 +31,7 @@ const SalesChart = (props) => {
 
     const data = [
         ["Platform", "Sales in Millions"],
-        ["PS4",10.4],
-        ["XBOX", 10.5],
+        
        ...platformArrays
       ];
 
