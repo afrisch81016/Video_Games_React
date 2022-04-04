@@ -4,6 +4,7 @@ import EntriesChartTracker from './Components/EntriesChartTracker/EntriesChartTr
 import axios from "axios";
 import DisplayGames from "./Components/DisplayGames/DisplayGames.jsx";
 import SalesChart from "./Components/SalesChart/SalesChart.jsx";
+import CustomChart from "./Components/CustomChart/CustomChart.jsx";
 
 
 
@@ -64,7 +65,9 @@ const filteredGames = (searchTerm) => {
       <input value = {searchTerm} type="text" onChange={(e)=> setSearchTerm(e.target.value)} />
       <button type="submit">Search Games</button>
       </form>
-       <SalesChart videoGames = {videoGames}/> 
+       <SalesChart videoGames = {videoGames}/>
+       <CustomChart games = {games} />
+       <h3>Games Displayed based off Search Results!</h3>
       <DisplayGames videoGames  = {videoGames}/>
     </div>
   );

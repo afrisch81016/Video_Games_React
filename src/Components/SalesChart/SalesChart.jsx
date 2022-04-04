@@ -5,7 +5,7 @@ const SalesChart = (props) => {
 
     function generateSalesforChart(){
 
-        let filteredGames = props.videoGames.filter(game => game.year >= 2013);
+        let filteredGames = props.videoGames.filter(game => game.year >= 1980);
 
         let salesPerPlatform = props.videoGames.map(game => {
             return game.platform;
@@ -24,14 +24,14 @@ const SalesChart = (props) => {
           },0)
           console.log(globalSales)
     
-          return [distinctPlatform, globalSales, "silver"]
+          return [distinctPlatform, globalSales]
         });
     
         console.log('Platform Arrays', platformArrays);
 
     const data = [
         ["Platform", "Sales in Millions"],
-        
+
        ...platformArrays
       ];
 
@@ -40,7 +40,7 @@ const SalesChart = (props) => {
     }
 
     const options = {
-        title: "game stuff",
+        title: "Sales by Platform in Millions (Enter Search Criteria to display Chart) ",
         is3D: true,
       }
 
@@ -48,7 +48,7 @@ const SalesChart = (props) => {
 
     return (
         <div>
-            <p>test</p>
+          
   <Chart
       chartType="PieChart"
       data={generateSalesforChart()}
