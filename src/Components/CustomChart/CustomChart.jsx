@@ -1,5 +1,6 @@
 import React from 'react'
 import { Chart } from "react-google-charts";
+import "./CustomChart.css"
 
 const CustomChart = (props) => {
 
@@ -41,11 +42,15 @@ function defineCustomChart(){
     }
 
     const options = {
-        title: "Global Sales of Genres", 
+        title: "", 
       };
 
     return (
         <div>
+            <style>
+          @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+          </style>
+          <h3>Global Sales of Genres</h3>
   <Chart
       chartType="PieChart"
       data={defineCustomChart()}

@@ -4,7 +4,8 @@
     justify-content: space-between;
     border: solid black .2em;
     border-radius: .2em;
-    background: url("./gameboy.jpg")  center 65%;
+    background: url("./gameboy.jpg") center 65% no-repeat;
+
 }
 
 .card{

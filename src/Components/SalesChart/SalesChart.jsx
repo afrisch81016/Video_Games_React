@@ -1,5 +1,6 @@
 import React from 'react';
 import { Chart } from "react-google-charts";
+import "./SalesChart.css";
 
 const SalesChart = (props) => {
 
@@ -40,14 +41,19 @@ const SalesChart = (props) => {
     }
 
     const options = {
-        title: "Sales by Platform in Millions (Enter Search Criteria to display Chart) ",
+        title: " ",
         is3D: true,
+        
       }
 
 
 
     return (
         <div>
+           <style>
+          @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+          </style>
+          <h3>Sales by Platform in Millions (Enter Search Criteria to display Chart)</h3>
           
   <Chart
       chartType="PieChart"

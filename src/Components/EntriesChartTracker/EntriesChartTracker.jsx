@@ -1,5 +1,8 @@
+
+
 import React from 'react';
 import { Chart } from "react-google-charts";
+import "./EntriesChartTracker.css"
 
 const EntriesChartTracker = (props) => {
   
@@ -43,6 +46,9 @@ const EntriesChartTracker = (props) => {
   }
   return (
        <div>
+         <style>
+          @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+          </style>
          <h1>Platform by Global Sales in Millions!</h1>
          <Chart chartType="ColumnChart" width="100%" height="400px" data={generateDataforChart()} />
        </div>

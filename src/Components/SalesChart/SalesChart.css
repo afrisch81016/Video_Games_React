@@ -1,0 +1,11 @@
+h3{
+
+    text-shadow: 0 0 3px #b27c7c, 0 0 5px #0000FF;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #9acd32;
+    border: black solid .1em;
+    font-family: 'Press Start 2P', cursive;
+    padding: .5em
+}

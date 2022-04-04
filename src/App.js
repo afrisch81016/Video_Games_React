@@ -5,7 +5,7 @@ import axios from "axios";
 import DisplayGames from "./Components/DisplayGames/DisplayGames.jsx";
 import SalesChart from "./Components/SalesChart/SalesChart.jsx";
 import CustomChart from "./Components/CustomChart/CustomChart.jsx";
-
+import "./App.css"
 
 
 function App() {
@@ -59,7 +59,7 @@ const filteredGames = (searchTerm) => {
 
 
   return (
-    <div>
+    <div className="body">
       <EntriesChartTracker games = {games}/>
       <form onSubmit={handleSubmit}>
       <input value = {searchTerm} type="text" onChange={(e)=> setSearchTerm(e.target.value)} />
