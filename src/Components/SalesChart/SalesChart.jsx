@@ -53,7 +53,7 @@ const SalesChart = (props) => {
            <style>
           @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
           </style>
-          <h3>Sales by Platform in Millions (Enter Search Criteria to display Chart)</h3>
+          <h3>Game Sales by Platform in Millions (Enter Search Criteria to display Chart)</h3>
           
   <Chart
       chartType="PieChart"

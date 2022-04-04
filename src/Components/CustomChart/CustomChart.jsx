@@ -42,7 +42,8 @@ function defineCustomChart(){
     }
 
     const options = {
-        title: "", 
+        title: "",
+        
       };
 
     return (
@@ -50,7 +51,7 @@ function defineCustomChart(){
             <style>
           @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
           </style>
-          <h3>Global Sales of Genres</h3>
+          <h3>Global Sales by Genre</h3>
   <Chart
       chartType="PieChart"
       data={defineCustomChart()}
