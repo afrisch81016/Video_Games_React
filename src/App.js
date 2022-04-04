@@ -64,14 +64,18 @@ const filteredGames = (searchTerm) => {
           @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
           </style>
       <EntriesChartTracker games = {games}/>
-      <form onSubmit={handleSubmit}>
-      <input value = {searchTerm} type="text" onChange={(e)=> setSearchTerm(e.target.value)} />
-      <button type="submit">Search Games</button>
-      </form>
+     
        <SalesChart videoGames = {videoGames}/>
        <CustomChart games = {games} />
        <h3>Top 5 Games Search Results!</h3>
       <DisplayGames videoGames  = {videoGames}/>
+      <footer>
+       devCodeCamp Team MVP
+       <form onSubmit={handleSubmit}>
+      <input value = {searchTerm} type="text" onChange={(e)=> setSearchTerm(e.target.value)} />
+      <button type="submit">Search Games</button>
+      </form>
+      </footer>
     </div>
   );
 }
