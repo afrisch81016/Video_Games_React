@@ -73,7 +73,7 @@ const filteredGames = (searchTerm) => {
        devCodeCamp Team MVP
        <form onSubmit={handleSubmit}>
       <input value = {searchTerm} type="text" onChange={(e)=> setSearchTerm(e.target.value)} />
-      <button type="submit">Search Games</button>
+      <button type="submit">Start</button>
       </form>
       </footer>
     </div>
