@@ -2,3 +2,32 @@ h3{
     text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
 }
 
+input{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #9acd32;
+    border: black solid .1em;
+    font-family: 'Press Start 2P', cursive;
+    padding: 1em;
+    border-radius: 3em;
+
+}
+
+form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: .5em;
+}
+
+button{
+    background-color: red;
+    color: white;
+    border-radius: 4em;
+    font-weight: bold;
+    padding: 1em;
+    font-family: 'Press Start 2P', cursive;
+
+}

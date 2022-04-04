@@ -60,6 +60,9 @@ const filteredGames = (searchTerm) => {
 
   return (
     <div className="body">
+       <style>
+          @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+          </style>
       <EntriesChartTracker games = {games}/>
       <form onSubmit={handleSubmit}>
       <input value = {searchTerm} type="text" onChange={(e)=> setSearchTerm(e.target.value)} />
@@ -67,7 +70,7 @@ const filteredGames = (searchTerm) => {
       </form>
        <SalesChart videoGames = {videoGames}/>
        <CustomChart games = {games} />
-       <h3>Top 5 <span>Games</span> Search Results!</h3>
+       <h3>Top 5 Games Search Results!</h3>
       <DisplayGames videoGames  = {videoGames}/>
     </div>
   );

@@ -14,8 +14,10 @@
     border:solid black .2em;
     justify-content: space-between;
     text-shadow: 0 0 3px #6aff00, 0 0 5px #ff0026;
+    font-family: 'Press Start 2P', cursive;
     padding: .2em;
     margin: .1em;
     border-radius: .5em;
     
 }
+
