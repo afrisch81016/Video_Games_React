@@ -1,13 +1,14 @@
 
+import "./DisplayGames.css";
 
 const DisplayGames = (props) => {
 
   console.log(props.videoGames);
   return (
-    <div className='displayborder'>
-        {props.videoGames.map((videoGames, index) => {
+    <div className='container'>
+        {props.videoGames.slice(0,5).map((videoGames, index) => {
             return(
-                <div key={index}>
+                <div className="card" key={index}>
                     <p>Rank: {videoGames.rank}</p>
                     <p>Name: {videoGames.name}</p>
                     <p>Year: {videoGames.year}</p>

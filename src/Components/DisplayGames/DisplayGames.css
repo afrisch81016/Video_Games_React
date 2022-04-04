@@ -1,0 +1,20 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: solid black .2em;
+    border-radius: .2em;
+    background: url("./gameboy.jpg")  center 65%;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    border:solid black .2em;
+    justify-content: space-between;
+    text-shadow: 0 0 3px #6aff00, 0 0 5px #ff0026;
+    padding: .2em;
+    margin: .1em;
+    border-radius: .5em;
+    
+}

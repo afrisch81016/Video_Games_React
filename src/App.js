@@ -67,7 +67,7 @@ const filteredGames = (searchTerm) => {
       </form>
        <SalesChart videoGames = {videoGames}/>
        <CustomChart games = {games} />
-       <h3>Games Displayed based off Search Results!</h3>
+       <h3>Top 5 <span>Games</span> Search Results!</h3>
       <DisplayGames videoGames  = {videoGames}/>
     </div>
   );
